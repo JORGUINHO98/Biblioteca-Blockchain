@@ -1,129 +1,173 @@
 # 📚 Mini Biblioteca Blockchain
 
-## 📖 Descripción
+Una aplicación descentralizada de gestión de biblioteca construida con React, Vite y Solidity que permite registrar libros y gestionar su estado de préstamo utilizando la blockchain.
 
-**Mini Biblioteca Blockchain** es una aplicación descentralizada (DApp) desarrollada con React, Vite y Solidity que permite gestionar una biblioteca de manera descentralizada en la blockchain de Ethereum.
+## 🎯 Descripción
 
-### Características Principales
+**Mini Biblioteca Blockchain** es una DApp (Aplicación Descentralizada) que permite:
 
-- ✅ Registro de libros con información completa (título, autor, editorial, año)
-- ✅ Gestión del estado de préstamo de cada libro
-- ✅ Catálogo completo visible para todos los usuarios
-- ✅ Integración con MetaMask para transacciones seguras
-- ✅ Contrato inteligente desplegado en Sepolia Testnet
+- ✅ Registrar libros con información detallada (título, autor, editorial, año)
+- ✅ Consultar el catálogo completo de libros
+- ✅ Cambiar el estado de préstamo de cada libro (disponible/prestado)
+- ✅ Interactuar con un contrato inteligente desplegado en Sepolia Testnet
+- ✅ Conexión segura mediante MetaMask
 
-## 🏗️ Estructura del Proyecto
-
-```
-Mini-Biblioteca/
-├── frontend/              # Aplicación React + Vite
-│   ├── src/
-│   │   ├── App.jsx       # Componente principal
-│   │   ├── App.css       # Estilos modernos
-│   │   ├── abi.json      # ABI del contrato
-│   │   └── config.js     # Configuración del contrato
-│   ├── README.md         # Documentación del frontend
-│   └── package.json      # Dependencias
-└── README.md             # Este archivo
-```
-
-## 🚀 Tecnologías
+## 🏗️ Tecnologías Utilizadas
 
 ### Frontend
-- **React 19** - Framework de UI
-- **Vite** - Build tool
-- **Ethers.js v6** - Biblioteca para blockchain
-- **CSS3** - Estilos modernos y responsive
+- **React 19** - Biblioteca para construir interfaces de usuario
+- **Vite** - Herramienta de construcción rápida
+- **Ethers.js v6** - Biblioteca para interactuar con la blockchain
+- **CSS3** - Estilos modernos con gradientes y animaciones
 
 ### Blockchain
-- **Solidity** - Lenguaje de smart contracts
-- **Sepolia Testnet** - Red de pruebas
-- **MetaMask** - Wallet
+- **Solidity** - Lenguaje de programación para smart contracts
+- **Sepolia Testnet** - Red de pruebas de Ethereum
+- **MetaMask** - Wallet para interactuar con la blockchain
 
-## ⚡ Inicio Rápido
+## 📋 Contrato Inteligente
+
+### Funciones Principales
+
+```solidity
+- addBook(title, author, publisher, year) // Agregar nuevo libro
+- getAllBooks() // Obtener todos los libros
+- toggleLoan(bookId) // Cambiar estado de préstamo
+- getBook(bookId) // Obtener información de un libro específico
+```
+
+### Estructura de Datos
+
+Cada libro contiene:
+- `id` - Identificador único
+- `title` - Título del libro
+- `author` - Autor
+- `publisher` - Editorial
+- `year` - Año de publicación
+- `onLoan` - Estado de préstamo (true/false)
+- `addedAt` - Timestamp de cuando fue agregado
+
+## 🚀 Instalación y Uso
 
 ### Prerrequisitos
 
-- Node.js 18+
-- MetaMask instalado
-- Cuenta en Sepolia con ETH de prueba
+- Node.js (versión 18 o superior)
+- npm o yarn
+- MetaMask instalado en tu navegador
+- Cuenta en Sepolia Testnet con ETH para gas
 
 ### Instalación
 
+1. Clona el repositorio:
 ```bash
-# Clonar el repositorio
 git clone <url-del-repositorio>
 cd Mini-Biblioteca/frontend
+```
 
-# Instalar dependencias
+2. Instala las dependencias:
+```bash
 npm install
+```
 
-# Configurar la dirección del contrato
-# Editar src/config.js con tu dirección
+3. Configura la dirección del contrato:
+   - Abre `src/config.js`
+   - Reemplaza `YOUR_CONTRACT_ADDRESS_HERE` con la dirección de tu contrato desplegado
 
-# Iniciar el servidor de desarrollo
+4. Inicia el servidor de desarrollo:
+```bash
 npm run dev
 ```
 
-## 🔗 Contrato Inteligente
+5. Abre tu navegador en `http://localhost:5173`
 
-### Dirección en Sepolia
+### Construir para Producción
+
+```bash
+npm run build
 ```
-0xe06C4263631d2CaD55D45Cb66Caa6c06821E43CA
-```
 
-**Ver en SepoliaScan:** [Ver contrato en Etherscan](https://sepolia.etherscan.io/address/0xe06C4263631d2CaD55D45Cb66Caa6c06821E43CA)
-
-### Funciones del Contrato
-
-```solidity
-- addBook(title, author, publisher, year)
-- getAllBooks()
-- toggleLoan(bookId)
-- getBook(bookId)
-- totalBooks()
-```
+Los archivos optimizados se generarán en la carpeta `dist/`.
 
 ## 🌐 Despliegue en Vercel
 
-1. Conecta tu repositorio a Vercel
-2. Configura:
-   - Framework Preset: **Vite**
+Para desplegar en Vercel:
+
+1. Haz push de tu código a GitHub
+2. Ve a [Vercel](https://vercel.com) y conecta tu repositorio
+3. Configura el proyecto:
+   - Framework Preset: Vite
    - Root Directory: `frontend`
    - Build Command: `npm run build`
    - Output Directory: `dist`
 
-3. ¡Deploy!
+4. Deploy!
 
-O usa el botón:
+## 📝 Uso de la Aplicación
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+1. **Conecta tu Wallet:**
+   - Asegúrate de estar en la red Sepolia en MetaMask
+   - Haz clic en "Conectar MetaMask"
+   - Acepta la conexión
 
-## 📸 Capturas
+2. **Agregar un Libro:**
+   - Completa el formulario con los datos del libro
+   - Haz clic en "Agregar Libro"
+   - Confirma la transacción en MetaMask
+   - Espera la confirmación de la blockchain
 
-![Pantalla Principal](https://via.placeholder.com/800x400?text=Pantalla+Principal)
-![Formulario de Agregar Libro](https://via.placeholder.com/800x400?text=Formulario)
+3. **Ver Libros:**
+   - Los libros se muestran automáticamente en el catálogo
+   - Cada tarjeta muestra toda la información del libro
+   - El estado de préstamo se indica con colores
 
-## 🎯 Uso
+4. **Cambiar Estado de Préstamo:**
+   - Haz clic en el botón correspondiente
+   - Confirma la transacción
+   - El estado se actualiza en la blockchain
 
-1. **Conectar Wallet:** Conecta MetaMask (red Sepolia)
-2. **Agregar Libro:** Completa el formulario y confirma
-3. **Ver Libros:** Navega por el catálogo
-4. **Cambiar Estado:** Marca libros como prestados/disponibles
+## 🔗 Dirección del Contrato
 
-## 🤝 Contribuciones
+**Sepolia Testnet:**
+```
+Dirección del contrato: 0xe06C4263631d2CaD55D45Cb66Caa6c06821E43CA
+```
 
-Las contribuciones son bienvenidas. Abre un issue o pull request.
+Ver en SepoliaScan: [https://sepolia.etherscan.io/address/0xe06C4263631d2CaD55D45Cb66Caa6c06821E43CA](https://sepolia.etherscan.io/address/0xe06C4263631d2CaD55D45Cb66Caa6c06821E43CA)
+
+## 🎨 Características de la UI
+
+- ✨ Diseño moderno con gradientes y animaciones
+- 📱 Totalmente responsive (móvil, tablet, desktop)
+- 🎯 Interfaz intuitiva y fácil de usar
+- ⚡ Feedback visual en tiempo real
+- 🔐 Conexión segura con MetaMask
+- 💫 Transiciones suaves y efectos hover
+
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
 ## 📄 Licencia
 
-MIT License - Ver `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
 ## 👨‍💻 Autor
 
-Desarrollado con ❤️ para demostrar Web3 y DApps.
+Desarrollado con ❤️ para demostrar las capacidades de Web3 y DApps.
+
+## 🆘 Soporte
+
+Si tienes problemas o preguntas:
+- Abre un issue en el repositorio
+- Verifica que estés en la red Sepolia
+- Asegúrate de tener ETH para gas en tu wallet
 
 ---
 
-**Nota:** Esta es una aplicación educativa. Usa siempre Sepolia Testnet.
-
+**Nota:** Esta es una aplicación de demostración para fines educativos. Usa Sepolia Testnet para todas las transacciones.
