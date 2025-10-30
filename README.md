@@ -89,18 +89,7 @@ npm run build
 Los archivos optimizados se generarán en la carpeta `dist/`.
 
 ## 🌐 Despliegue en Vercel
-
-Para desplegar en Vercel:
-
-1. Haz push de tu código a GitHub
-2. Ve a [Vercel](https://vercel.com) y conecta tu repositorio
-3. Configura el proyecto:
-   - Framework Preset: Vite
-   - Root Directory: `frontend`
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-
-4. Deploy!
+https://biblioteca-blockchain.vercel.app/ 
 
 ## 📝 Uso de la Aplicación
 
